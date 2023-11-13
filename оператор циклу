@@ -1,0 +1,253 @@
+1
+using System;
+
+class EvenNumbersPrinter
+{
+    public void PrintEvenNumbers(int start, int end)
+    {
+        Console.WriteLine("Even numbers from {0} to {1}:", start, end);
+
+        for (int i = start; i <= end; i++)
+        {
+            if (IsEven(i))
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+
+    private bool IsEven(int number)
+    {
+        return number % 2 == 0;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        EvenNumbersPrinter evenNumbersPrinter = new EvenNumbersPrinter();
+        evenNumbersPrinter.PrintEvenNumbers(1, 20);
+    }
+}
+
+2
+using System;
+
+class SumCalculator
+{
+    public void CalculateAndPrintSum(int start, int end)
+    {
+        int sum = 0;
+
+        for (int i = start; i <= end; i++)
+        {
+            sum += i;
+        }
+
+        Console.WriteLine("Sum of numbers from {0} to {1}: {2}", start, end, sum);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        SumCalculator sumCalculator = new SumCalculator();
+        sumCalculator.CalculateAndPrintSum(1, 100);
+    }
+}
+
+3
+using System;
+
+class MultiplicationTable
+{
+    public void PrintTable(int number)
+    {
+        Console.WriteLine("Multiplication table for {0}:", number);
+
+        for (int i = 1; i <= 10; i++)
+        {
+            Console.WriteLine("{0} x {1} = {2}", number, i, number * i);
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        MultiplicationTable multiplicationTable = new MultiplicationTable();
+        multiplicationTable.PrintTable(5); // Замініть 5 на бажане число користувачем
+    }
+}
+
+4
+using System;
+
+class FactorialCalculator
+{
+    public int CalculateFactorial(int n)
+    {
+        if (n == 0 || n == 1)
+        {
+            return 1;
+        }
+        else
+        {
+            return n * CalculateFactorial(n - 1);
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        FactorialCalculator factorialCalculator = new FactorialCalculator();
+        Console.WriteLine("Enter a number:");
+        int userInput = Convert.ToInt32(Console.ReadLine());
+        int result = factorialCalculator.CalculateFactorial(userInput);
+        Console.WriteLine("Factorial of {0}: {1}", userInput, result);
+    }
+}
+
+5
+using System;
+
+class PrimeSumCalculator
+{
+    public void CalculateAndPrintPrimeSum(int start, int end)
+    {
+        int sum = 0;
+
+        for (int i = start; i <= end; i++)
+        {
+            if (IsPrime(i))
+            {
+                sum += i;
+            }
+        }
+
+        Console.WriteLine("Sum of prime numbers from {0} to {1}: {2}", start, end, sum);
+    }
+
+    private bool IsPrime(int number)
+    {
+        if (number < 2)
+        {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.Sqrt(number); i++)
+        {
+            if (number % i == 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        PrimeSumCalculator primeSumCalculator = new PrimeSumCalculator();
+        primeSumCalculator.CalculateAndPrintPrimeSum(1, 50);
+    }
+}
+
+6
+using System;
+
+class BinaryConverter
+{
+    public string ConvertToBinary(int number)
+    {
+        return Convert.ToString(number, 2);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        BinaryConverter binaryConverter = new BinaryConverter();
+        Console.WriteLine("Enter a number:");
+        int userInput = Convert.ToInt32(Console.ReadLine());
+        string binaryResult = binaryConverter.ConvertToBinary(userInput);
+        Console.WriteLine("Binary representation of {0}: {1}", userInput, binaryResult);
+    }
+}
+
+
+7
+using System;
+
+class FibonacciCalculator
+{
+    public void CalculateAndPrintFibonacciSum(int limit)
+    {
+        int a = 0, b = 1, sum = 0, count = 0;
+
+        while (a + b <= limit)
+        {
+            int next = a + b;
+            sum += next;
+            count++;
+            a = b;
+            b = next;
+        }
+
+        Console.WriteLine("Sum of Fibonacci numbers less than or equal to {0}: {1}", limit, sum);
+        Console.WriteLine("Number of Fibonacci elements: {0}", count);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        FibonacciCalculator fibonacciCalculator = new FibonacciCalculator();
+        Console.WriteLine("Enter a limit:");
+        int userInput = Convert.ToInt32(Console.ReadLine());
+        fibonacciCalculator.CalculateAndPrintFibonacciSum(userInput);
+    }
+}
+
+
+8
+using System;
+
+class GCDCalculator
+{
+    public int CalculateGCD(int a, int b)
+    {
+        while (b != 0)
+        {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        GCDCalculator gcdCalculator = new GCDCalculator();
+        Console.WriteLine("Enter the first number:");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter the second number:");
+        int num2 = Convert.ToInt32(Console.ReadLine());
+        int result = gcdCalculator.CalculateGCD(num1, num2);
+        Console.WriteLine("GCD of {0} and {1}: {2}", num1, num2, result);
+    }
+}
+
